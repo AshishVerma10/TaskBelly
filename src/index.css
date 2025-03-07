@@ -1,0 +1,143 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 96.1%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 26% 18%; /* #1a2a44 */
+    --foreground: 0 0% 88%; /* #e0e0e0 */
+
+    --card: 220 22% 26%; /* #2a3b5a */
+    --card-foreground: 0 0% 88%; /* #e0e0e0 */
+
+    --popover: 220 22% 26%; /* #2a3b5a */
+    --popover-foreground: 0 0% 88%; /* #e0e0e0 */
+
+    --primary: 174 57% 41%; /* #26a69a */
+    --primary-foreground: 0 0% 100%; /* #ffffff */
+
+    --secondary: 220 22% 16%;
+    --secondary-foreground: 0 0% 88%; /* #e0e0e0 */
+
+    --muted: 220 22% 26%; /* #2a3b5a */
+    --muted-foreground: 0 0% 64%; /* #a3a3a3 */
+
+    --accent: 220 22% 26%; /* #2a3b5a */
+    --accent-foreground: 0 0% 88%; /* #e0e0e0 */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 88%; /* #e0e0e0 */
+
+    --border: 220 22% 36%;
+    --input: 220 22% 26%; /* #2a3b5a */
+    --ring: 174 57% 41%; /* #26a69a */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-50 text-foreground font-sans min-h-screen dark:from-[#1a2a44] dark:to-[#162238];
+    font-family: 'Inter', sans-serif;
+  }
+
+  .glass {
+    @apply bg-white bg-opacity-70 backdrop-blur-sm border border-white border-opacity-20 shadow-glass dark:bg-[#2a3b5a] dark:bg-opacity-70 dark:border-[#3a4b6a] dark:border-opacity-20 dark:shadow-dark-glass;
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl transition-all duration-300 hover:shadow-glass-hover dark:hover:shadow-dark-glass-hover;
+  }
+  
+  .progress-bar {
+    @apply h-2 rounded-full bg-gray-200 overflow-hidden dark:bg-gray-700;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full bg-todo-progress animate-progress-fill;
+  }
+  
+  .category-icon {
+    @apply w-14 h-14 flex items-center justify-center text-white rounded-2xl shadow-md opacity-80 transition-all duration-300 hover:opacity-100 hover:scale-105;
+  }
+}
+
+/* Custom scrollbar styling */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thumb-gray-400::-webkit-scrollbar-thumb {
+    @apply bg-gray-400;
+    border-radius: 3px;
+  }
+  
+  .dark .scrollbar-thumb-gray-400::-webkit-scrollbar-thumb {
+    @apply bg-gray-600;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-track-gray-200::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+    border-radius: 3px;
+  }
+  
+  .dark .scrollbar-track-gray-200::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200;
+  }
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 #e2e8f0;
+}
+
+.dark * {
+  scrollbar-color: #475569 #1e293b;
+}
